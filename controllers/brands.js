@@ -48,7 +48,7 @@ exports.create = [
     const errors = validationResult(req);
 
     // Create student object with escaped and trimmed data
-    var brand = new Brand({
+    var brand = new Brands({
       _id: req.body.id,
       brand_name: req.body.brand_name,
       creator_fullname: req.body.creator_fullname,
@@ -143,7 +143,7 @@ exports.update = [
     .isNumeric()
     .withMessage("Id must be a number."),
 
-  body("firstName")
+  body("brand_name")
     .trim()
     .isLength({ min: 1 })
     .escape()
@@ -151,7 +151,7 @@ exports.update = [
     .isAlphanumeric()
     .withMessage("First name has non-alphanumeric characters."),
 
-  body("lastName")
+  body("creator_fullname")
     .trim()
     .isLength({ min: 1 })
     .escape()
@@ -159,15 +159,15 @@ exports.update = [
     .isAlphanumeric()
     .withMessage("Last name has non-alphanumeric characters."),
 
-  body("class")
+  body("type_of_car")
     .trim()
     .isLength({ min: 1 })
     .escape()
     .withMessage("Last name must be specified."),
 
-  body("email").isEmail().withMessage("Invalid email"),
+  body("contact_email").isEmail().withMessage("Invalid email"),
 
-  body("dateOfBirth", "Invalid date of birth")
+  body("creationDate", "Invalid date of birth")
     .optional({ checkFalsy: true })
     .isISO8601()
     .toDate(),
@@ -177,7 +177,7 @@ exports.update = [
     const errors = validationResult(req);
 
     // Create student object with escaped and trimmed data
-    var brand = new Brand({
+    var brand = new Brands({
       _id: req.params.id,
       brand_name: req.body.brand_name,
       creator_fullname: req.body.creator_fullname,
