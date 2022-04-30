@@ -10,7 +10,7 @@ var app = express();
 var mongoose = require("mongoose");
 
 var dev_db_url =
-  "mongodb+srv://Adrien060201:H1TYttAj6TWfgHSz@brands-car-adrien-poula.m0a3v.mongodb.net/myFirstDatabase?retryWrites=true&w=majority;
+  "mongodb+srv://Adrien060201:H1TYttAj6TWfgHSz@brands-car-adrien-poula.m0a3v.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
 var mongoDB = process.env.MONGODB_URI || dev_db_url;
 
